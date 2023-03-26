@@ -361,7 +361,10 @@ public class menumonkeyFrame extends javax.swing.JFrame {
             sframe.jLabel11.setText(t411);
             sframe.jLabel12.setText(t511);
             
-            
+            sframe.jLabel8.setText(inventarios);
+            sframe.jLabel13.setText(produccions);
+            sframe.jLabel14.setText(empaquetados);
+            sframe.jLabel15.setText(salidas);
             
             sframe.jButton3.setVisible(true);
             /*
