@@ -389,21 +389,29 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
     }
         public synchronized void CambioTiempoEmpaquetado(){
             menumonkeyFrame mfr = new menumonkeyFrame();
-        if (TiempoEmpaquetado== mfr.inventariot+mfr.producciont){
-            TiempoEmpaquetado=mfr.inventariot;
+        if (TiempoEmpaquetado== tp+ti){
+            TiempoEmpaquetado=ti;
         }
+        
+        //if (TiempoEmpaquetado== ti+tp){
+         //   TiempoEmpaquetado=ti;
+        //}
     }
     public synchronized void CambioTiempoSalida(){
         menumonkeyFrame mfr = new menumonkeyFrame();
-        if (TiempoSalida==mfr.inventariot+mfr.producciont+mfr.empaquetadot){
-            TiempoSalida=mfr.inventariot;
+        if (TiempoSalida==ti+tp+te){
+            TiempoSalida=ti;
         }
+        //if (TiempoSalida==ti+tp+te){TiempoSalida=ti;}
     }
     public synchronized void CambioTiempoFinal(){
         menumonkeyFrame mfr = new menumonkeyFrame();
-        if (TiempoFinal==mfr.inventariot+mfr.producciont+mfr.empaquetadot+mfr.salidat){
-            TiempoFinal=mfr.inventariot;
+        if (TiempoFinal==ti+tp+te+ts){
+            TiempoFinal=ti;
         }
+        //if (TiempoFinal==ti+tp+te+ts){
+          //  TiempoFinal=ti;
+        //}
     }
     
     
@@ -449,7 +457,7 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
         TiempoFinal=0;
         ContadorIncial=30;
         
-        TiempoProduccion=(tp);
+        TiempoProduccion=(ti);
         TiempoEmpaquetado=(ti+tp);
         TiempoSalida=(ti+tp+te);
         TiempoFinal=(ti+tp+te+ts);
@@ -696,16 +704,6 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
                     .addComponent(cin))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel4.setText("1");
-
-        jLabel9.setText("1");
-
-        jLabel10.setText("1");
-
-        jLabel11.setText("1");
-
-        jLabel12.setText("1");
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("FINAL");
