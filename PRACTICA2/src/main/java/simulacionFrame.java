@@ -81,6 +81,35 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
        ContadorFinal++;
     }
     //FUNCIONES PARA PINTAR EL CIRCULO
+    
+    public class DespintariCiculo{
+        public DespintariCiculo(Graphics g, int x, int y) {
+            Color id = new Color(51,102,255);
+            g.setColor(id);
+            g.fillOval(x, y, 20, 20);
+        }
+    }
+        public class DespintarpCiculo{
+        public DespintarpCiculo(Graphics g, int x, int y) {
+            Color pd = new Color(102,255,102);
+            g.setColor(pd);
+            g.fillOval(x, y, 20, 20);
+        }
+    }
+            public class DespintareCiculo{
+        public DespintareCiculo(Graphics g, int x, int y) {
+            Color ed = new Color(204,0,204);
+            g.setColor(ed);
+            g.fillOval(x, y, 20, 20);
+        }
+    }
+                public class DespintarsCiculo{
+        public DespintarsCiculo(Graphics g, int x, int y) {
+            Color sd = new Color(255,153,153);
+            g.setColor(sd);
+            g.fillOval(x, y, 20, 20);
+        }
+    }
     public class PintarCiculoInventario{
         public PintarCiculoInventario(Graphics g, int x, int y) {
             Color Inventario = new Color(0,0,102);
@@ -88,12 +117,7 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
             g.fillOval(x, y, 20, 20);
         }
     }
-    public class DespintarCiculo{
-        public DespintarCiculo(Graphics g, int x, int y) {
-            g.setColor(Color.BLACK);
-            g.fillOval(x, y, 20, 20);
-        }
-    }
+    
     public class PintarCiculoProduccion{
         public PintarCiculoProduccion(Graphics g, int x, int y) {
             Color Produccion = new Color(0, 102, 0);
@@ -231,7 +255,7 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
                 incProduccion();
                 PintarCiculoProduccion CirculoProduccion = new PintarCiculoProduccion(Panel1.getGraphics(),x,y);
                 cpr.setText(String.valueOf(ContadorProduccion));
-                DespintarCiculo Circulo = new DespintarCiculo(Panel2.getGraphics(),x,y);
+                DespintariCiculo Circulo = new DespintariCiculo(Panel2.getGraphics(),x,y);
                 decInventario();
                 cin.setText(String.valueOf(ContadorInventario));
                 if(ContadorInventario==0&&ContadorIncial==0){
@@ -272,7 +296,7 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
                 PintarCiculoEmpaquetado CirculoEmpaquetado = new PintarCiculoEmpaquetado(Panel1.getGraphics(),x,y);
                 cem.setText(String.valueOf(ContadorEmpaquetado));     
                 decProduccion();
-                DespintarCiculo Circulo = new DespintarCiculo(Panel2.getGraphics(),x,y);
+                DespintarpCiculo Circulo = new DespintarpCiculo(Panel2.getGraphics(),x,y);
                 cpr.setText(String.valueOf(ContadorProduccion));
                 CambioTiempoEmpaquetado();
                 if(ContadorInventario==0&&ContadorProduccion==0&&ContadorIncial==0){
@@ -313,7 +337,7 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
                 incSalida();
                 csa.setText(String.valueOf(ContadorSalida));     
                 decEmpaquetado();
-                DespintarCiculo Circulo = new DespintarCiculo(Panel2.getGraphics(),x,y);
+                DespintareCiculo Circulo = new DespintareCiculo(Panel2.getGraphics(),x,y);
                 cem.setText(String.valueOf(ContadorEmpaquetado));
                 CambioTiempoSalida();
                 if(ContadorInventario==0&&ContadorProduccion==0&&ContadorEmpaquetado==0&&ContadorIncial==0){
@@ -352,7 +376,7 @@ public class simulacionFrame extends javax.swing.JFrame implements Observer{
                     x=6;
                 }
                 decSalida();
-                DespintarCiculo Circulo = new DespintarCiculo(Panel2.getGraphics(),x,y);
+                DespintarsCiculo Circulo = new DespintarsCiculo(Panel2.getGraphics(),x,y);
                 csa.setText(String.valueOf(ContadorSalida));
                 CambioTiempoFinal();
                 if(ContadorInventario==0&&ContadorProduccion==0&&ContadorEmpaquetado==0&&ContadorSalida==0&&ContadorIncial==0){
@@ -855,34 +879,40 @@ public String generarReporte() {
     System.out.println(e3);
     System.out.println(e4);
     System.out.println(e5);
+     String tiempo = TiempoTranscurrido.getText();
     
     StringBuilder sb = new StringBuilder();
+        sb.append("<body bgcolor=\"cyan\">");
         sb.append("<font font face=\"Arial\">");
-        sb.append("<h2>").append("Reporte Costo De Simulación").append("</h2>");
         
-        sb.append("<table border=\"2\">\n");
+        sb.append("<h1>").append("Reporte Costo De Simulación").append("</h1>");
+        
+        sb.append("<table border=\"1\">\n");
         sb.append("<tr>");
         sb.append("<td>").append("Costo Inventario").append("</td>");
-        sb.append("<td>").append("Q. "+e1+".00").append("</td>");
+        sb.append("<td>").append("Q. "+e1+"0").append("</td>");
         sb.append("</tr>");
         sb.append("<tr>");
         sb.append("<td>").append("Costo Producción").append("</td>");
-        sb.append("<td>").append("Q. "+e2+".00").append("</td>");
+        sb.append("<td>").append("Q. "+e2+"0").append("</td>");
         sb.append("</tr>");  
         sb.append("<tr>");
         sb.append("<td>").append("Costo Empaquetado").append("</td>");
-        sb.append("<td>").append("Q. "+e3+".00").append("</td>");
+        sb.append("<td>").append("Q. "+e3+"0").append("</td>");
         sb.append("</tr>");     
         sb.append("<tr>");
         sb.append("<td>").append("Costo Salida").append("</td>");
-        sb.append("<td>").append("Q. "+e4+".00").append("</td>");
+        sb.append("<td>").append("Q. "+e4+"0").append("</td>");
         sb.append("</tr>"); 
         sb.append("<tr>");
         sb.append("<td>").append("Costo Total").append("</td>"); 
-        sb.append("<td>").append("Q. "+e5+".00").append("</td>");
+        sb.append("<td>").append("Q. "+e5+"0").append("</td>");
+        sb.append("<td>").append("Se ha tardado un tiempo de: ").append("</td>"); 
+        sb.append("<td>").append(tiempo).append("</td>");
         sb.append("</tr>"); 
         sb.append("</table>");
         sb.append("<h4>").append("PABLO ANDRES RODRIGUEZ LIMA - 202201947").append("</h4>");
+        sb.append("</body>");
         sb.append("</font>");
         //SE CIERRA
         return sb.toString();
